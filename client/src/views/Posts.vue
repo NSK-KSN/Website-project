@@ -20,7 +20,6 @@
 </template>
 
 <script>
-  
   import PostsService from '@/service/posts'
   export default {
     name: 'posts',

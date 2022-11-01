@@ -2,6 +2,7 @@ import { VueElement } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Posts from '../views/Posts.vue'
+import Publisher from '../views/Publisher'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/series/:id',
     name: 'posts',
     component: Posts
+  },
+  {
+    path: '/:id',
+    name: 'publisher',
+    component: Publisher
   }
 ]
 

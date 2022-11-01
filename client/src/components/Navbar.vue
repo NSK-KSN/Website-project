@@ -2,7 +2,7 @@
     <nav>
       <div class="menu-item"><router-link to="/">Home</router-link></div>
       <div class="menu-item"><a href="#">About</a></div>
-      <Dropdown title="Services" :items="services" />
+      <Dropdown title="Publishers" :items="services" />
       <div class="menu-item"><a href="#">Contact</a></div>
     </nav>
   </template>
@@ -18,16 +18,16 @@
       return {
         services: [
           {
-            title: 'Web',
-            link: '#'
+            title: 'Азбука-Аттикус',
+            link: '/azbuka-attikus'
           },
           {
-            title: 'Design',
-            link:'#'
+            title: 'Истари Комикс',
+            link:'istari-komiks'
           },
           {
-            title: 'Videos',
-            link: '#'
+            title: 'XL Media',
+            link: 'xl-media'
           }
         ]
       }
