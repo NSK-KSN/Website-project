@@ -57,6 +57,7 @@
         display: flex;
         flex-direction: column;
         text-decoration: none;
-        
+        width:260px;
+        height: 385px;
       }
 </style>

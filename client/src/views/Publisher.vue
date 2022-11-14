@@ -1,7 +1,13 @@
 <template>
+  <div class="box">
+    <div class="container-1">
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <input type="search" v-model="search" placeholder="Search..." id="search"/>
+    </div>
+  </div>
     <main>
         <section class="products">
-            <div v-for="post in posts">
+            <div v-for="post in searchHandler">
             <div v-if="$route.params.id === post.publisherLink ">
                 <div class="product">
                     <router-link :to="'/series/' + post.malID" class="movie-link">
@@ -22,12 +28,14 @@
 </template>
   
   <script>
-    import PostsService from '@/service/posts'
+
+  import PostsService from '@/service/posts'
   export default {
     name: 'posts',
     data () {
       return {
-        posts: []
+        posts: [],
+        search: ''
       }
     },
     mounted () {
@@ -37,6 +45,13 @@
       async getPosts () {
         const response = await PostsService.fetchPosts(this.$route.params.id)
         this.posts = response.data
+      },
+    },
+    computed: {
+      searchHandler() {
+        return this.posts.filter(elem => {
+          return elem.title.toLowerCase().includes(this.search.toLowerCase())
+        });
       }
     }
   } 
@@ -68,4 +83,70 @@
         max-width: 280px;
         padding: 16px 20px;
     }
-  </style>
+
+    .box{
+  margin: 10px;
+  width: 300px;
+  height: 50px;
+  padding-left: 170px;
+  }
+
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.container-1 input#search{
+  width: 300px;
+  height: 50px;
+  background: #222;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #444;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  -webkit-transition: background .55s ease;
+-moz-transition: background .55s ease;
+-ms-transition: background .55s ease;
+-o-transition: background .55s ease;
+transition: background .55s ease;
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+   color: #444;
+}
+ 
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-1 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #444;
+}
+
+.container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #fff;
+  }
+
+  
+</style>
