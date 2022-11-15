@@ -17,7 +17,7 @@ app.listen(process.env.PORT || config.port,
 mongodb.connect("mongodb://127.0.0.1:27017", function(err, dbo) {
     if (err) throw err;
 
-    dbo.db("manga-project").collection("posts").find({}).toArray(function(err, data){
+    dbo.db("manga-project").collection("posts").find({}).sort( {"title" : 1} ).toArray(function(err, data){
         if (err) throw err;
 
         app.get('/posts', (req, res) => {

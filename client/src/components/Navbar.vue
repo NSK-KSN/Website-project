@@ -23,11 +23,23 @@
           },
           {
             title: 'Истари Комикс',
-            link:'istari-komiks'
+            link:'/istari-komiks'
           },
           {
             title: 'XL Media',
-            link: 'xl-media'
+            link: '/xl-media'
+          },
+          {
+            title: 'АСТ',
+            link: '/ast'
+          },
+          {
+            title: 'Фантастика',
+            link: '/fantastika'
+          },
+          {
+            title: 'Комильфо',
+            link: '/komilfo'
           }
         ]
       }
