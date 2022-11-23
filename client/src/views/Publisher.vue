@@ -1,4 +1,7 @@
 <template>
+  <div class="publisher-title">
+    <h1>Издательство {{$route.params.id}}</h1>
+  </div>
   <div class="box">
     <div class="container-1">
       <span class="icon"><i class="fa fa-search"></i></span>
@@ -58,6 +61,11 @@
   </script>
   
   <style>
+
+  .publisher-title {
+    margin: 10px;
+  padding-left: 170px;
+  }
   
   main {
     width: 100vw;
